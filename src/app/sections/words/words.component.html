@@ -1,0 +1,5 @@
+<h3>Words</h3>
+<hr>
+<div class="align-items-center"  *ngFor="let word of currentWords">
+  <a href="#" (click)="sendWordId(word.wordId)">{{word.word}}</a>
+</div>

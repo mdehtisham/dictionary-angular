@@ -1,0 +1,9 @@
+<h3>Meaning with Image</h3>
+<hr>
+<div  *ngIf="currentWordDef?.imgUrl" class="row">
+  <div class="col-sm-12">
+    <img class=".img-fluid" src="{{currentWordDef?.imgUrl}}" alt="">
+  </div>
+  <h5>{{currentWordDef?.def}}</h5>
+</div>
+<app-search></app-search>

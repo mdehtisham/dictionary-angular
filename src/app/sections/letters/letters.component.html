@@ -1,0 +1,6 @@
+<h3>Letters</h3>
+<hr>
+<div  *ngFor="let letter of letters">
+  <a href="#" (click)="sendLetterId(letter.id)">{{letter.value}}</a>
+</div>
+<!-- <p *ngFor="let word of words">{{word | json}}</p> -->

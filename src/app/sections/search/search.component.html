@@ -1,1 +1,19 @@
-<p>search works!</p>
+<div id="search" *ngIf="!existanceOfMeaning">
+  <form (submit)="searchMeaning()">
+    <input [(ngModel)]="wordToSearch" name="searchField" class="py-1" type="text" placeholder="Enter the word">
+    <button type="submit" class="btn btn-outline-secondary ms-2 mb-1 rounded-0">Search</button>
+  </form>
+  <div *ngIf="meaningResult" class="col-sm-12 text-start">
+    <p class="h3 text-center">Searched Word : <span class="h5 lead">{{meaningResult[0].word}}</span></p>
+    <hr>
+    <div *ngFor="let def of meaningResult[0].meanings[0].definitions; let i = index;">
+      <p *ngIf="def.definition" class="h3">Meaning {{i+1}} : <span class="h5 lead">{{def.definition}}</span></p>
+      <p *ngIf="def.example" class="h3">Example : <span class="h5 lead">{{def.example}}</span></p>
+      <hr>
+    </div>
+  </div>
+  <div class="p-2 mt-2 text-warning bg-light border border-warning align-middle" *ngIf="errorMessage">
+    <p class="pt-1">{{errorMessage}}</p>
+  </div>  
+</div>
+

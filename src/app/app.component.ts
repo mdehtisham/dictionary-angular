@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { LettersComponent } from './sections/letters/letters.component';
 import { MeaningComponent } from './sections/meaning/meaning.component';
+import { SearchComponent } from './sections/search/search.component';
 import { WordsComponent } from './sections/words/words.component';
 
 @Component({
@@ -12,10 +13,8 @@ export class AppComponent implements AfterViewInit {
   @ViewChild(LettersComponent) lettersComponent: LettersComponent;
   @ViewChild(WordsComponent) wordsComponent: WordsComponent;
   @ViewChild(MeaningComponent) meaningComponent: MeaningComponent;
-  // @ViewChild(WordsComponent, { static: false })
-  // wordsComponent: WordsComponent;
-  // @ViewChild(MeaningComponent, { static: false })
-  // meaningComponent: MeaningComponent;
+
+  title = 'dictionary';
   constructor() { }
 
   ngAfterViewInit() { }
@@ -30,5 +29,7 @@ export class AppComponent implements AfterViewInit {
   }
 
 
-  title = 'dictionary';
+
+
+
 }

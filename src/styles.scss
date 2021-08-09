@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #c2d2e4;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #0079ef;
+  border-radius: 10px;
+}

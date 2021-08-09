@@ -1,9 +1,13 @@
-<h3>Meaning with Image</h3>
+<h3>Meaning with Image | Dictionary</h3>
 <hr>
 <div  *ngIf="currentWordDef?.imgUrl" class="row">
   <div class="col-sm-12">
     <img class=".img-fluid" src="{{currentWordDef?.imgUrl}}" alt="">
+    <h5>{{currentWordDef?.def}}</h5>
+    <!-- <button class="btn btn-secondary d-inline-block">Show Dictionary</button> -->
   </div>
-  <h5>{{currentWordDef?.def}}</h5>
 </div>
-<app-search></app-search>
+<!-- sticky-top d-block -->
+<div class="col-sm-12 app-search">
+  <app-search  [events]="eventsSubject.asObservable()"></app-search>
+</div>

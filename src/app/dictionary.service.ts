@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { SearchWordModel } from './sections/model/dictionary.model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +33,17 @@ export class DictionaryService {
     { "id": "23", "value": "W" },
     { "id": "24", "value": "X" },
     { "id": "25", "value": "Y" },
-    { "id": "26", "value": "Z" }
+    { "id": "26", "value": "Z" },
+    { "id": "27", "value": "Z" },
+    { "id": "28", "value": "Z" },
+    { "id": "29", "value": "Z" },
+    { "id": "30", "value": "Z" },
+    { "id": "31", "value": "Z" },
+    { "id": "32", "value": "Z" },
+    { "id": "33", "value": "Z" },
+    { "id": "34", "value": "Z" },
+    { "id": "35", "value": "Z" },
+    { "id": "36", "value": "Z" },
   ]
 
   words = [
@@ -45,7 +58,7 @@ export class DictionaryService {
     { "id": "3", "wordId": "33", "word": "City", "imgUrl": "assets/city.jpg", "def": "City is a place where people live" }
   ]
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
 
   getLetters() {
     return this.letters
@@ -55,4 +68,8 @@ export class DictionaryService {
     return this.words
   }
 
+  // To Get Filter Types For KBA
+  public searchWord(word: string): Observable<SearchWordModel[]> {
+    return this.http.get<SearchWordModel[]>('https://api.dictionaryapi.dev/api/v2/entries/en_US/' + word);
+  }
 }

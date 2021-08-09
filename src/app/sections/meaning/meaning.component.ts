@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs';
 import { DictionaryService } from 'src/app/dictionary.service';
 import { MeaningModel } from '../model/dictionary.model';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-meaning',
@@ -8,20 +10,25 @@ import { MeaningModel } from '../model/dictionary.model';
   styleUrls: ['./meaning.component.scss']
 })
 export class MeaningComponent implements OnInit {
+  @Output() currentWordDefEvent: EventEmitter<boolean> = new EventEmitter();
   words: any;
-  currentWordDef: MeaningModel = new MeaningModel();;
+  currentWordDef: MeaningModel = new MeaningModel();
+  eventsSubject: Subject<boolean> = new Subject<boolean>();
+
 
   constructor(private dictionaryService: DictionaryService) {
-    this.words = this.dictionaryService.getWords()
+
   }
 
   ngOnInit(): void {
+    this.words = this.dictionaryService.getWords()
   }
 
   showWord(wordId: string) {
     for (let value of this.words) {
       if (value.wordId === wordId) {
-        this.currentWordDef = value
+        this.currentWordDef = value;
+        this.eventsSubject.next(true);
       }
     }
   }

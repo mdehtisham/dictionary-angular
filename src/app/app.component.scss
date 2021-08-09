@@ -1,0 +1,21 @@
+
+// ::ng-deep #search{
+//   position: sticky !important;
+//   top: 0 !important;
+//   z-index: 1020px !important;
+// }
+::ng-deep .app-search{
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1020 !important;
+}
+
+
+// ::-webkit-scrollbar{
+//   width: 8px;
+// }
+
+// ::-webkit-scrollbar-thumb{
+//   background: #0079EF;
+//   border-radius: 10px;
+// }
